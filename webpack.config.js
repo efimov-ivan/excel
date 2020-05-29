@@ -1,7 +1,8 @@
 const path = require('path')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
-const HTMLWebpuckPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackHotPlugin = require('html-webpack-hot-plugin')
+// const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -46,19 +47,19 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HTMLWebpuckPlugin({
+    new HtmlWebpackPlugin({
       template: 'index.html',
       minify: {
         removeComments: isProd,
         collapseWhitespace: isProd
       }
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, 'src/favicon.ico'),
-        to: path.resolve(__dirname, 'favicon.ico')
-      }
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, 'src/favicon.ico'),
+    //     to: path.resolve(__dirname, 'favicon.ico')
+    //   }
+    // ]),
     new MiniCssExtractPlugin({
       filename: filename('css')
     })
