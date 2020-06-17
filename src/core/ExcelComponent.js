@@ -19,8 +19,7 @@ export class ExcelComponent extends DomListener {
   }
 
   $emit(event, ...args) {
-    const unsub = this.emitter.emit(event, ...args)
-    this.unsubscribers.push(unsub)
+    this.emitter.emit(event, ...args)
   }
 
   $on(event, fn) {
@@ -43,6 +42,7 @@ export class ExcelComponent extends DomListener {
 
   destroy() {
     this.removeDOMListeners()
+    console.log(this)
     this.unsubscribers.forEach(unsub => unsub())
   }
 }

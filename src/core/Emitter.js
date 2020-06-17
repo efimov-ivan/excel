@@ -10,6 +10,7 @@ export class Emitter {
     this.listeners[event].forEach(listener => {
       listener(...args)
     })
+    return true
   }
 
   subscribe(event, fn) {
