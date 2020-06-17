@@ -49,3 +49,12 @@ export function debounce(fn, wait) {
     timeout = setTimeout(later, wait)
   }
 }
+
+export function splitExcelKey(key) {
+  return key.split(':')[1]
+}
+
+// export function preventDefault(event) {
+//   event.preventDefault()
+// }
+
